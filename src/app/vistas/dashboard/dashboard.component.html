@@ -1,0 +1,68 @@
+<body>
+  <div class="container w-150 t mt-5 rounded ">
+    <div class="row align-items-stretch">
+
+      <div class="col rounded">
+        <p>Hoy 12 de Octubre</p>
+        <h2 class="fw-bold">Tareas</h2>
+      </div>
+
+      <div class="col rounded btn-light text-center ">
+        <p>Total de completos</p>
+        <p class="fw-bold">{{datosCompletos.length}}</p>
+      </div>
+
+
+
+      <div class="col rounded btn-light text-center">
+        <p>Total de incompletos</p>
+        <p class="fw-bold">{{datosIncomplee.length}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container w-150 t mt-5 rounded ">
+    <div class="row align-items-stretch">
+
+      <div class="input-group col">
+        <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Search"
+          aria-describedby="search-addon" (blur)="ngSearchData($event)" />
+        <button type="button" class="btn btn-primary"> -- </button>
+      </div>
+
+      <div class="col rounded">
+
+      </div>
+
+      <div class="col rounded">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container w-150 t mt-5 rounded ">
+    <div class="row align-items-stretch">
+      <table class="table">
+        <thead class="btn-light">
+          <tr>
+            <th scope="col" class="text-center col-1">Id</th>
+            <th scope="col" class="col-5">Title</th>
+            <th scope="col" class="col-3">Status</th>
+            <th scope="col" class="col-3">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of datosEnviados; index as i">
+            <th scope="row">
+              <p class="text-primary text-center">{{ i + 1 }}</p>
+            </th>
+            <td>{{ data.title }}</td>
+            <td>{{ data.completed}}</td>
+            <td><button type="button" class="btn btn-outline-danger" value="{{data.id}}" (click)="ngDelete($event)">
+                Eliminar </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
